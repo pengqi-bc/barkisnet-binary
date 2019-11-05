@@ -1,6 +1,6 @@
 {
   "genesis_time": "2019-10-27T03:45:38.436632797Z",
-  "chain_id": "barkisnet-testnet",
+  "chain_id": "barkisnet-test",
   "consensus_params": {
     "block": {
       "max_bytes": "22020096",
@@ -41,7 +41,7 @@
                   "min_self_delegation": "1000000",
                   "delegator_address": "barkis1rkytv6f7zjycq543z0u7p4gcle63jsglurkvfq",
                   "validator_address": "barkisvaloper1rkytv6f7zjycq543z0u7p4gcle63jsgltezez4",
-                  "pubkey": "barkisvalconspub1zcjduepqr2ga8jphkytv2qd6kr4zh4kn5te8dw3m7kr8kach6sk4v5aax3vqj2ey7e",
+                  "pubkey": "barkisvalconspub1zcjduepqs7rs9ljmz45ware4qq3pxwaxej3eewacsn9p5cr3w2h5eqvk36sqw2xu6h",
                   "value": {
                     "denom": "ubarkis",
                     "amount": "10000000000"
@@ -59,13 +59,28 @@
                   "type": "tendermint/PubKeySecp256k1",
                   "value": "AzzLW2lJUKlGx9MggEf9S2bjjkLdfHz11B67Rt7H9m/6"
                 },
-                "signature": "9nGi4ojR82Q2DtPrmOFSd75sV0VMcGBoe7vn+fo6c3hbIpbay07kD7IE4MSBr3UIDPc1mHzzeJ5asjXukcjE+A=="
+                "signature": "lOj9MCS+QjXsfuUbopZwhjCbx7Go+7MucHXaeAvzMMpyq5T4sE8uh+z8dlUP+IEJqpKUU58baWUXILVYHVMJ2w=="
               }
             ],
-            "memo": "6cc895eb8c6524738f662359d11a72d2fa3fa7ee@54.249.56.168:26656"
+            "memo": "fc5801770df2af7f07af99b1be88cea84886c22b@54.249.56.168:26656"
           }
         }
       ]
+    },
+    "slashing": {
+      "params": {
+        "max_evidence_age": "120000000000",
+        "signed_blocks_window": "100",
+        "min_signed_per_window": "0.500000000000000000",
+        "downtime_jail_duration": "600000000000",
+        "slash_fraction_double_sign": "0.050000000000000000",
+        "slash_fraction_downtime": "0.010000000000000000"
+      },
+      "signing_infos": {},
+      "missed_blocks": {}
+    },
+    "bank": {
+      "send_enabled": true
     },
     "crisis": {
       "constant_fee": {
@@ -73,14 +88,22 @@
         "amount": "1000000000"
       }
     },
-    "auth": {
-      "params": {
-        "max_memo_characters": "256",
-        "tx_sig_limit": "7",
-        "tx_size_cost_per_byte": "10",
-        "sig_verify_cost_ed25519": "590",
-        "sig_verify_cost_secp256k1": "1000"
-      }
+    "distribution": {
+      "fee_pool": {
+        "community_pool": []
+      },
+      "community_tax": "0.020000000000000000",
+      "base_proposer_reward": "0.010000000000000000",
+      "bonus_proposer_reward": "0.040000000000000000",
+      "withdraw_addr_enabled": true,
+      "delegator_withdraw_infos": [],
+      "previous_proposer": "",
+      "outstanding_rewards": [],
+      "validator_accumulated_commissions": [],
+      "validator_historical_rewards": [],
+      "validator_current_rewards": [],
+      "delegator_starting_infos": [],
+      "validator_slash_events": []
     },
     "gov": {
       "starting_proposal_id": "1",
@@ -106,6 +129,30 @@
       }
     },
     "params": null,
+    "auth": {
+      "params": {
+        "max_memo_characters": "256",
+        "tx_sig_limit": "7",
+        "tx_size_cost_per_byte": "10",
+        "sig_verify_cost_ed25519": "590",
+        "sig_verify_cost_secp256k1": "1000"
+      }
+    },
+    "staking": {
+      "params": {
+        "unbonding_time": "3600000000000",
+        "max_validators": 31,
+        "max_entries": 7,
+        "bond_denom": "ubarkis"
+      },
+      "last_total_power": "0",
+      "last_validator_powers": null,
+      "validators": null,
+      "delegations": null,
+      "unbonding_delegations": null,
+      "redelegations": null,
+      "exported": false
+    },
     "accounts": [
       {
         "address": "barkis1rkytv6f7zjycq543z0u7p4gcle63jsglurkvfq",
@@ -208,21 +255,6 @@
         ]
       }
     ],
-    "slashing": {
-      "params": {
-        "max_evidence_age": "120000000000",
-        "signed_blocks_window": "100",
-        "min_signed_per_window": "0.500000000000000000",
-        "downtime_jail_duration": "600000000000",
-        "slash_fraction_double_sign": "0.050000000000000000",
-        "slash_fraction_downtime": "0.010000000000000000"
-      },
-      "signing_infos": {},
-      "missed_blocks": {}
-    },
-    "bank": {
-      "send_enabled": true
-    },
     "mint": {
       "minter": {
         "inflation": "0.130000000000000000",
@@ -237,38 +269,6 @@
         "goal_bonded": "0.670000000000000000",
         "blocks_per_year": "6311520"
       }
-    },
-    "staking": {
-      "params": {
-        "unbonding_time": "3600000000000",
-        "max_validators": 31,
-        "max_entries": 7,
-        "bond_denom": "ubarkis"
-      },
-      "last_total_power": "0",
-      "last_validator_powers": null,
-      "validators": null,
-      "delegations": null,
-      "unbonding_delegations": null,
-      "redelegations": null,
-      "exported": false
-    },
-    "distribution": {
-      "fee_pool": {
-        "community_pool": []
-      },
-      "community_tax": "0.020000000000000000",
-      "base_proposer_reward": "0.010000000000000000",
-      "bonus_proposer_reward": "0.040000000000000000",
-      "withdraw_addr_enabled": true,
-      "delegator_withdraw_infos": [],
-      "previous_proposer": "",
-      "outstanding_rewards": [],
-      "validator_accumulated_commissions": [],
-      "validator_historical_rewards": [],
-      "validator_current_rewards": [],
-      "delegator_starting_infos": [],
-      "validator_slash_events": []
     },
     "supply": {
       "supply": []
